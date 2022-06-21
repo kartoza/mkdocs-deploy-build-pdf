@@ -11,6 +11,10 @@ do
     apk add --no-cache "${package}"
 done
 
+pip install mkdocs-with-pdf
+pip install mkdocs-material
+pip install qrcode
+
 if [ -n "${REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${REQUIREMENTS}" ]; then
     pip install -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
 else

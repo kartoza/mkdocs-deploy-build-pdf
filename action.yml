@@ -1,7 +1,7 @@
 # action.yml
-name: 'Deploy MkDocs'
-description: 'Deploys MkDocs site'
-author: 'Michael Hausenblas, hausenb@amazon.com'
+name: 'Create PDF from MkDocs'
+description: 'Builds a PDF for MkDocs a site'
+author: 'Tim Sutton, tim@kartoza.com'
 branding:
   icon: 'arrow-up-circle'  
   color: 'orange'

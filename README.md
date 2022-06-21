@@ -2,7 +2,7 @@
 
 ![GitHub Badge](https://github.com/kartoza/mkdocs-deploy-build-pdf/workflows/Build/badge.svg)
 
-> **Note::** This action is based heavily on https://github.com/mhausenblas/mkdocs-deploy-gh-pages
+> **Note:** This action is based heavily on https://github.com/mhausenblas/mkdocs-deploy-gh-pages
 
 This GitHub action will build an [MkDocs site](https://www.mkdocs.org/) as [GitHub Pages](https://pages.github.com/), using the [Material](https://github.com/squidfunk/mkdocs-material) theme. It assumes that an `mkdocs-pdf.yml` file is present in the top-level directory and the source files (Markdown, etc.) are in the `docs/` folder. 
 

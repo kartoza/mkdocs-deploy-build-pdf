@@ -6,6 +6,8 @@
 
 This GitHub action will build an [MkDocs site](https://www.mkdocs.org/) as [GitHub Pages](https://pages.github.com/), using the [Material](https://github.com/squidfunk/mkdocs-material) theme. It assumes that an `mkdocs-pdf.yml` file is present in the top-level directory and the source files (Markdown, etc.) are in the `docs/` folder. 
 
+The action works in conjunction with the MkDocs plugin [mkdocs-pdf-export-plugin](https://github.com/zhaoterryy/mkdocs-pdf-export-plugin) which takes care of the actual PDF creation.
+
 ### Custom File Pathing of Mkdocs file
 
 This action supports deployment of mkdocs with different file path , if you populate a `CONFIG_FILE` environment variable. This is important if you have mkdocs file in another folder such as if you have `mkdocs-pdf.yml` in a path `docs/mkdocs-pdf.yml`. Without populating this, the deployment assumes that `mkdocs-pdf.yml` is on the root folder.

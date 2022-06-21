@@ -27,7 +27,4 @@ else
     export CONFIG_FILE="${GITHUB_WORKSPACE}/mkdocs.yml"
 fi
 
-git remote rm origin
-git remote add origin "${remote_repo}"
-
 mkdocs build --config-file "${CONFIG_FILE}"

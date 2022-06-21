@@ -11,6 +11,7 @@ do
     apk add --no-cache "${package}"
 done
 
+# see https://doc.courtbouillon.org/weasyprint/latest/first_steps.html#alpine-3-12
 apk add py3-pip gcc musl-dev python3-dev pango zlib-dev jpeg-dev openjpeg-dev g++ libffi-dev
 pip install mkdocs-with-pdf
 pip install mkdocs-material

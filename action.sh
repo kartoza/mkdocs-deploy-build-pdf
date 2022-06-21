@@ -20,11 +20,6 @@ else
     fi
 fi
 
-if [ -n "${CUSTOM_DOMAIN}" ]; then
-    print_info "Setting custom domain for github pages"
-    echo "${CUSTOM_DOMAIN}" > "${GITHUB_WORKSPACE}/docs/CNAME"
-fi
-
 if [ -n "${CONFIG_FILE}" ]; then
     print_info "Setting custom path for mkdocs config yml"
     export CONFIG_FILE="${GITHUB_WORKSPACE}/${CONFIG_FILE}"
@@ -32,26 +27,7 @@ else
     export CONFIG_FILE="${GITHUB_WORKSPACE}/mkdocs.yml"
 fi
 
-if [ -n "${GITHUB_TOKEN}" ]; then
-    print_info "setup with GITHUB_TOKEN"
-    remote_repo="https://x-access-token:${GITHUB_TOKEN}@${GITHUB_DOMAIN:-"github.com"}/${GITHUB_REPOSITORY}.git"
-elif [ -n "${PERSONAL_TOKEN}" ]; then
-    print_info "setup with PERSONAL_TOKEN"
-    remote_repo="https://x-access-token:${PERSONAL_TOKEN}@${GITHUB_DOMAIN:-"github.com"}/${GITHUB_REPOSITORY}.git"
-else
-    print_info "no token found; linting"
-    exec -- mkdocs build --strict
-fi
-
-if ! git config --get user.name; then
-    git config --global user.name "${GITHUB_ACTOR}"
-fi
-
-if ! git config --get user.email; then
-    git config --global user.email "${GITHUB_ACTOR}@users.noreply.${GITHUB_DOMAIN:-"github.com"}"
-fi
-
 git remote rm origin
 git remote add origin "${remote_repo}"
 
-mkdocs gh-deploy --config-file "${CONFIG_FILE}" --force
+mkdocs build --config-file "${CONFIG_FILE}"
